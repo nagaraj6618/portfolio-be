@@ -17,7 +17,7 @@ const getAllContactInfo = async(req,res) => {
    const contactData = await ContactSchema.find({})
    console.log(contactData)
    try{
-      res.status(200).json({data:contactData,message:"success"});
+      res.status(200).json({contactData,message:"success"});
    }
    catch(error){
       res.status(500).json({message:'unsuccess'});
