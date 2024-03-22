@@ -37,10 +37,10 @@ const postContactInfo = async(req,res) => {
       const newPost = new ContactSchema(req.body)
       await newPost.save()
       let mailOptions = {
-         from: 'nagaraj516700@gmail.com', 
+         from: 'NAGARAJ S <nagaraj516700@gmail.com>', 
          to: req.body.email, 
          subject: "Thanks for contacting! We'll get back to you soon.", 
-         text: `Hii,
+         text: `Dear ${req.body.name},
       
       I am Nagaraj S. Thank you for reaching out! Your message has been received, and I will get back to you as soon as possible.
       
