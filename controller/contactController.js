@@ -48,14 +48,15 @@ const postContactInfo = async(req,res) => {
       Nagaraj S,
       secretary` 
       };
-      transporter.sendMail(mailOptions, function(error, info){
+      transporter.sendMail(mailOptions, async function(error, info){
          if (error) {
              console.error('Error sending email:', error);
          } else {
              console.log('Email sent:', info.response);
+             await res.status(201).json({message:'Success',data:req.body,email:info.response});
          }
      });
-      res.status(201).json({message:'Success',data:req.body});
+      // res.status(201).json({message:'Success',data:req.body});
    }
    catch(error){
       res.status(500).json({message:'Unsuccess'});
