@@ -36,6 +36,7 @@ const loginMethod = async(req,res) => {
          // httpOnly: true,
          // secure: true,
          // sameSite: 'None',
+         
          expiresIn:token.expiresIn,
       },
 
