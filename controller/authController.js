@@ -46,15 +46,15 @@ const loginMethod = async(req,res) => {
 }
 
 
-const verifyToken = (token) => {
+const verifyToken = (token,res) => {
    let reqUser = null;
    if(!token){
-      return res.status(401).json({message:"Not Authorized"})
+      return null
    }
    jwt.verify(
       token,process.env.JWT_SECERETKEY,(err,user) => {
          if(err){
-            return res.status(401).json({message:'Auth Failed'});
+            return null
          }
          reqUser=user; 
       }
@@ -64,11 +64,12 @@ const verifyToken = (token) => {
 
 const verifyAdmin = (req,res,next) => {
    const user = verifyToken(req.cookies.accessToken)
-   if(user.role === 'admin'){
+
+   if(user && user.role === 'admin'){
       next()
    }
    else{
-      return res.status(401).json({  message: "Not Authenticated" })
+       res.status(401).json({  message: "Not Authenticated" })
    }
 }
 module.exports = {checkingMethod,registerMethod,loginMethod,verifyAdmin}
