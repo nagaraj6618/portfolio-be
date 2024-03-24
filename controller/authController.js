@@ -63,6 +63,7 @@ const verifyToken = (token,res) => {
 }
 
 const verifyAdmin = (req,res,next) => {
+   console.log(req)
    const user = verifyToken(req.cookies.accessToken)
 
    if(user && user.role === 'admin'){
