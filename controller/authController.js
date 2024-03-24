@@ -33,12 +33,11 @@ const loginMethod = async(req,res) => {
       );
       res.cookie('accessToken',token,
       {
-         httpOnly: true,
+         
          expires: new Date(Date.now() + 3600000),
       },
 
-      )
-      res.status(200).json({message:"Login Successfull",token:token});
+      ).status(200).json({message:"Login Successfull",token:token});
       
    }
    catch(error){
