@@ -23,22 +23,21 @@ const loginMethod = async(req,res) => {
       if(user.length==0){
          return res.status(400).json({message:"Invalid email or password"})
       }
-      // const token = jwt.sign(
-      //    {
-      //       id:user[0]._id,
-      //       role:user[0].role
-      //    },
-      //    process.env.JWT_SECERETKEY,
-      //    {  expiresIn : '1h' }
-      // );
-      // res.cookie('accessToken',token,
-      // {
-      //    httpOnly:true,
-      //    expiresIn:token.expiresIn
-      // },
+      const token = jwt.sign(
+         {
+            id:user[0]._id,
+            role:user[0].role
+         },
+         process.env.JWT_SECERETKEY,
+         {  expiresIn : '1h' }
+      );
+      res.cookie('accessToken',token,
+      {
+         expiresIn:token.expiresIn,
+      },
 
-      // )
-      res.status(200).json({message:"Login Successfull",token:"token"});
+      )
+      res.status(200).json({message:"Login Successfull",token:token});
       
    }
    catch(error){
