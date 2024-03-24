@@ -12,13 +12,14 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 const connection = mongoose.connection;
 const corsOptions = {
    origin: true,
-   credentials: true
+   credentials: true,
+
  }
 
 
 //middleware
 app.use(express.json())
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(cookieParser());
 connection.once('open', () => {
     console.log("MongoDB Connected");
