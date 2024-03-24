@@ -33,11 +33,8 @@ const loginMethod = async(req,res) => {
       );
       res.cookie('accessToken',token,
       {
-         // httpOnly: true,
-         secure: true,
-         // sameSite: 'None',
-
-         expiresIn:token.expiresIn,
+         httpOnly: true,
+         expires: new Date(Date.now() + 3600000),
       },
 
       )
