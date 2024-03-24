@@ -33,9 +33,9 @@ const loginMethod = async(req,res) => {
       );
       res.cookie('accessToken',token,
       {
-         httpOnly: true,
-         secure: true,
-         sameSite: 'None',
+         // httpOnly: true,
+         // secure: true,
+         // sameSite: 'None',
          expiresIn:token.expiresIn,
       },
 
