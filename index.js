@@ -11,7 +11,7 @@ const cors = require('cors')
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 const corsOptions = {
-    origin: "*",
+    origin: "https://portfolio-nagaraj.vercel.app/",
     credentials: true,
  
   }
