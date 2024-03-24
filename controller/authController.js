@@ -46,7 +46,7 @@ const loginMethod = async(req,res) => {
 }
 
 
-const verifyToken = (token,res) => {
+const verifyToken = (token) => {
    let reqUser = null;
    if(!token){
       return null
