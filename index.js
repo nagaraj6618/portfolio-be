@@ -20,6 +20,8 @@ const corsOptions = {
 //middleware
 app.use(express.json())
 app.use(cors(corsOptions))
+
+
 app.use(cookieParser());
 connection.once('open', () => {
     console.log("MongoDB Connected");

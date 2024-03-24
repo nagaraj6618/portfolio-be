@@ -33,7 +33,10 @@ const loginMethod = async(req,res) => {
       );
       res.cookie('accessToken',token,
       {
-         expiresIn:token.expiresIn,
+         httpOnly: true,
+         secure: true,
+         sameSite: 'None',
+         expires:token.expiresIn,
       },
 
       )
